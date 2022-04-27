@@ -1,11 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.scss'
-
-export default function Home() {
-
-  const [logo, setLogo] = useState('https://lorraxs.com/inventory/imgs/bread.png')
+import Image from 'next/image'
+function Logo() {
+  const [logo, setLogo] = useState()
 
   useEffect(() => {
     const MessageHandler=(e)=>{
@@ -20,13 +17,8 @@ export default function Home() {
   }, [])
   
 
-  return (
+  return (logo &&
     <div className={styles.container}>
-      <Head>
-        <title>LRDUI</title>
-        <meta name="description" content="LRDUI" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
 
       <main className={styles.main}>
         <Image src={logo} alt="" srcset="" />
@@ -34,3 +26,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Logo
